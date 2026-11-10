@@ -4,7 +4,7 @@
 
 [![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE) [![Release: v1.0.0](https://img.shields.io/badge/release-v1.0.0-blue.svg)](https://github.com/liuda1999/dsh-voice-mode-headless/releases/tag/v1.0.0) [![DSH: dsh-plugin](https://img.shields.io/badge/DSH-dsh--plugin-181717.svg)](https://github.com/topics/dsh-plugin)
 
-**简体中文** · [English](README.en.md) · [中英双语 / Bilingual](README.bilingual.md)
+**简体中文** · [English](README.en.md) · [语言切换 / Switch](README.bilingual.md)
 
 > 说人话就是：给它通上电、连上网、开个麦克风，之后显示器、鼠标、键盘全都不用接。你站旁边说句话，它就把活干了，干完还把结果念给你听。
 
@@ -227,7 +227,7 @@
 .
 ├── README.md                       ← 简体中文主版，说人话版
 ├── README.en.md                    ← English edition
-├── README.bilingual.md             ← 中英逐节对照版
+├── README.bilingual.md             ← 语言切换页 / Language switcher
 ├── SKILL.md                        ← WorkBuddy 技能入口（触发条件 + 章节导航 + 硬约束）
 ├── references/
 │   └── 语音模式说明.md              ← 完整方案原文：架构、参数、命令、九步部署、排障、变更记录
