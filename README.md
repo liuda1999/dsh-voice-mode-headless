@@ -4,6 +4,8 @@
 
 ⭐ **先别急着往下翻，麻烦先去给上游点个 Star：** [qishuilalala/dsh-voice-mode](https://github.com/qishuilalala/dsh-voice-mode)。没有那个项目，这个仓库连一行字都写不出来。文末有我们认认真真写的致谢，是真的感谢，不是客套。
 
+📖 这仓库**完全公开、MIT 许可**，随便看、随便用、随便改；上游版权单独写在 [NOTICE.md](NOTICE.md) 里，不抢别人的功劳。
+
 ---
 
 ## 这到底是个啥
@@ -231,12 +233,49 @@
 ├── SKILL.md                        ← WorkBuddy 技能入口（触发条件 + 章节导航 + 硬约束）
 ├── references/
 │   └── 语音模式说明.md              ← 完整方案原文：架构、参数、命令、九步部署、排障、变更记录
-└── LICENSE                         ← MIT
+├── community/                      ← DSH 社区收录状态、登记表材料与标签复查
+│   ├── README.md
+│   └── dsh-plugin-radar.md
+├── CONTRIBUTING.md                 ← 怎么参与、哪些不能改
+├── CODE_OF_CONDUCT.md              ← 行为准则
+├── SECURITY.md                     ← 部署涉及的安全事项
+├── NOTICE.md                       ← 上游版权归属与致谢
+├── LICENSE                         ← MIT
+└── .github/
+    ├── ISSUE_TEMPLATE/             ← 问题 / 建议模板
+    └── pull_request_template.md
 ```
 
 **想当成 WorkBuddy 技能用**：把 `SKILL.md` 和 `references/` 一起放进 `~/.workbuddy/skills/dsh-voice-mode-headless/`，或者下载发布包解压到那儿。之后跟智能体提「把闲置设备改成语音盒子」「无浏览器语音链路怎么装」「肥鱼没反应」之类的话，它就会自己去翻参考文档的对应章节。
 
 **只想自己照着装**：直接读 `references/语音模式说明.md` 第 10 节就够了，那份文档本来就是不依赖任何工具也能照做的施工手册。
+
+---
+
+## 完全开源，也进了 DSH 社区
+
+先把话说清楚：这个仓库**完全公开、完全开源**。公开仓库、[MIT 许可](LICENSE)，随便看、随便用、随便改、随便分发，没有功能阉割，也没有「开源但保留某些权利」的附加条款。上游版权单独写在 [NOTICE.md](NOTICE.md) 里，不把别人的功劳算到自己头上。
+
+开源项目该有的东西也补齐了：[贡献指南](CONTRIBUTING.md)、[行为准则](CODE_OF_CONDUCT.md)、[安全说明](SECURITY.md)、Issue 和 PR 模板。有意见直接开 issue，别客气。
+
+**DSH 社区这边**：
+
+- 仓库已经加上生态官方发现标签 [`dsh-plugin`](https://github.com/topics/dsh-plugin)，dsh-plugin.org、dshmarketplace.dev、DSH Plugin Radar 等社区目录靠它做常规扫描，会自动发现并收录；
+- 也按 [DSH Plugin Radar 登记表](https://github.com/AdamPlatin123/dsh-plugin-radar) 的 🎓 技能 分区准备好了登记条目，**收录进度和待办写在 [`community/README.md`](community/README.md)**；
+- 精选插件库的主目录要求「可安装插件 + 真实插件代码 + 仓库满 1 天」，本仓库是文档型项目，按规矩**不冒充插件**去投主目录，只走技能 / 相关项目通道。
+
+---
+
+## 先说清楚：这不是一个 DSH 插件
+
+社区里插件很多，身份得说明白，免得有人照着 `dsh plugin add` 装半天装不上：
+
+- 本仓库是**文档 + WorkBuddy 技能**（`SKILL.md` + `references/语音模式说明.md`），没有 `package.json`、没有 `dsh.bundle`、没有 `apply(ctx)`，也没有 `cordis.patch.yml`；
+- 所以**不能**用 `dsh plugin add` 安装本仓库。上面「怎么装」第 1 步那条 `dsh plugin --profile web add dsh-voice-mode` 装的是[上游插件](https://github.com/qishuilalala/dsh-voice-mode)，是这条部署链路要用的依赖，跟本仓库不是一回事；
+- 想用这个仓库，要么把 `SKILL.md` 和 `references/` 放进 WorkBuddy 的技能目录，要么直接照着 README 给设备装一套；
+- 在 DSH 社区目录里，它该归到「技能 / 文档 / 相关项目」，不是「可安装插件」。我们也是这么登记的。
+
+跟 DeepSeek AI 官方没有隶属关系，也不是官方项目。
 
 ---
 
@@ -264,6 +303,9 @@ A：识别是本地的，但推理模型目前走线上，密钥放在 `<DSH_HOM
 **Q：为什么非要系统自动登录？**
 A：因为麦克风授权只在用户登录会话里有效。不自动登录，重启后没人点登录，那两个后台服务就起不来。代价是登录密码会以系统 kcpassword 保存、登录窗口被跳过，改密码后要重新设一次自动登录。
 
+**Q：这个仓库能用 `dsh plugin add` 装吗？**
+A：不能，它是文档和 WorkBuddy 技能，不是 DSH 插件。装的是上游 `dsh-voice-mode`，本仓库照着读或放进技能目录就行。详细见上面「先说清楚：这不是一个 DSH 插件」。
+
 **Q：这算不算另起炉灶重写了上游？**
 A：完全不算，也担不起。模型、音色、识别合成全靠上游，我们只是补了「没有浏览器时谁来听、谁来传」这一截。
 
@@ -271,7 +313,9 @@ A：完全不算，也担不起。模型、音色、识别合成全靠上游，�
 
 ## 许可
 
-本仓库的文档与技能说明采用 **MIT**，见 [LICENSE](LICENSE)。上游项目同样是 MIT，其代码与模型的版权归原作者 [@qishuilalala](https://github.com/qishuilalala) 所有，本仓库不主张对上游代码的任何权利，也没有复制上游源码，只按公开文档和 npm 包做了引用与说明。
+本仓库的文档与技能说明采用 **MIT**，见 [LICENSE](LICENSE)——可以自由使用、修改、分发。上游项目同样是 MIT，其代码、模型与音色资源的版权归原作者 [@qishuilalala](https://github.com/qishuilalala) 及各自权利人所有；本仓库不主张对上游代码的任何权利，也没有复制上游源码，只按公开文档和 npm 包做了引用与说明，完整归属见 [NOTICE.md](NOTICE.md)。
+
+贡献指南、行为准则、安全说明、Issue / PR 模板都在仓库里，欢迎来提意见；DSH 社区的收录状态见 [`community/README.md`](community/README.md)。
 
 ---
 
