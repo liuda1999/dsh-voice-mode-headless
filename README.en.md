@@ -64,7 +64,7 @@ One more detail that matters: replies are forced into **short spoken sentences**
 |---|---|---|
 | Needs a screen | Usually | Never |
 | How you get the answer | Displayed, or one spoken line | Read aloud sentence by sentence, long answers included |
-| Can you interrupt it | Usually you wait | Say a complete sentence and it stops immediately |
+| Can you interrupt it | Usually you wait | The wake word stops playback instantly; echo and coughs do not |
 | Will it operate other machines | Depends on the ecosystem | Yes — tools, commands and network live in its workspace |
 | Where's the record | Mostly gone after reading | Sessions are kept; browse them in the web UI |
 | Extra API key for listening | Often | On-device ASR, no extra key |
@@ -106,21 +106,20 @@ One caveat worth stating early: the upstream plugin records **inside the browser
 
 In plain terms: when are you speaking, and when are you done?
 
-1. In silence the recognizer is not running at all — idle CPU is close to zero.
-2. Sound starts a segment, with 300 ms of pre-roll so the first syllable isn't lost.
+1. In silence the recognizer is off — idle CPU ≈ 0. Quiet sounds below RMS 0.006 and bursts under 300 ms are ignored.
+2. Sound starts a segment with 300 ms of pre-roll; empty or punctuation-only results are dropped.
 3. **2000 ms** of continuous silence ends the segment.
-4. If it starts with "肥鱼", strip the name; the rest is the instruction.
-5. Just the name? It replies "我在" ("here") and opens a 20-second wake-free window.
-6. A complete sentence while it is speaking stops playback immediately and takes over.
-7. New instructions arriving mid-task are queued, not dropped.
-
-The wake word is two syllables and easy to mis-hear, so the rule is: **last syllable exact, first syllable may be a homophone**. If that still fails, use a longer wake word.
+4. The wake word must be **at the start** of the sentence: second syllable exact, first may be a homophone — "飞鱼" wakes it, "买条鱼" does not.
+5. **Wake word has top priority**: saying just the name stops playback instantly, replies "我在" (here), but **does not kill the running task**; the next 20 seconds need no wake word.
+6. A short stop phrase right after it (stop / cancel / never mind…, ≤12 characters) terminates the task and replies "好的，停了".
+7. Other instructions run immediately when idle, or queue until the current turn finishes.
+8. During playback **only the wake word** can interrupt — echo, coughs and noise never cut a reply short.
 
 ---
 
 ## A Fresh Session Every Day
 
-The early build kept one session forever. Context grew bloated and history became a mess. Now:
+The baseline spec keeps one fixed session; this project adds a daily-rotation rule so context does not grow bloated:
 
 **The first utterance of each day opens a new session for that day; everything else that day continues it; the first utterance after midnight opens another.** Yesterday's sessions stay available.
 
@@ -175,7 +174,7 @@ Every path in the docs is a placeholder (`~`, `<VOICE_DIR>`, `<VOICE_WS>`, `<DSH
 |---|---|
 | Wake word | `VOICE_WAKE` |
 | It cuts you off too eagerly | Raise `VOICE_SILENCE_MS` (currently 2000) |
-| Too quiet / too trigger-happy | `VOICE_RMS` |
+| Too quiet / noisy room triggers it | `VOICE_RMS` (currently 0.006) |
 | Reads too fast | `VOICE_SPEED` (currently 0.9) |
 | Different voice | Write a preset name into `voice.txt` and restart the bridge; choices: suyingxue / gunian / fushiyu / bingjiao / bazong |
 | Answers too long | Edit the voice workspace's `AGENTS.md` |
@@ -190,9 +189,9 @@ Commands are in Section 7 of the reference doc; the parameter table is in 5.1.
 
 | Symptom | Likely cause | Fix |
 |---|---|---|
-| No response, no segments in the log | Capture stopped (device slept, audio route changed) | A 12 s watchdog restarts it; kickstart manually if impatient |
+| No response, no segments in the log | Capture stopped (device slept, audio route changed) | Capture app self-checks and binds the default input device; watchdog restarts after 3 s without audio, with a 10 s cooldown; kickstart manually if impatient |
 | Peak level stuck near zero | Wrong input device or input volume at 0 | Check the system default input |
-| Wake word ignored | Mis-recognition, or outside the 20 s window | Second-pass ASR already corrects; try a 3+ syllable wake word |
+| Wake word ignored | Mis-recognition, not at the start, or outside the 20 s window | Second-pass ASR already corrects; say it at the start, or use a 3+ syllable wake word |
 | Executed before you finished | Paused too long mid-sentence | Already relaxed to 2 s; raise `VOICE_SILENCE_MS` further |
 | Log repeats `session locked, retry` | The session is open in the web UI and holds a write lock | Close that tab; the bridge retries every 5 s and does not switch sessions |
 | New session missing from sidebar | The host loads its session list at startup | Refresh or restart the web service |
@@ -207,7 +206,7 @@ Full troubleshooting table: Section 8 of the reference doc.
 - The web UI is not live; the session list needs a refresh or a service restart;
 - Opening a voice session in the UI takes a write lock that conflicts with voice writes (it keeps retrying, never switches sessions);
 - A single spoken turn is silently cut at 800 characters; the session record is unaffected;
-- Interrupting playback still needs that 2 s of silence;
+- Interrupting playback requires the wake word; random speech, coughs or echo will not cut a reply short;
 - Bluetooth headsets may lose the mic during playback, breaking barge-in;
 - No runtime switch for the model — edit the profile;
 - Cold start depends on system auto-login; changing the login password requires setting it up again;
