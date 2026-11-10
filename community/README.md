@@ -8,7 +8,9 @@
 - **已加入 DSH 生态发现体系**：仓库加上了官方标签 [`dsh-plugin`](https://github.com/topics/dsh-plugin)。dsh-plugin.org、dshmarketplace.dev、DSH Plugin Radar 等社区目录都靠这个标签做常规扫描，会自动发现并收录本仓库。
 - **已备好登记表条目**：在 fork 分支 `add-dsh-voice-mode-headless` 里，把一行登记写进了 [DSH Plugin Radar 的 `PLUGINS.md`](https://github.com/AdamPlatin123/dsh-plugin-radar/blob/main/PLUGINS.md) 的 🎓 技能 分区，运行级按规矩填「待测」。原文见 [dsh-plugin-radar.md](dsh-plugin-radar.md)。
 
-## ⏳ 还差一步（网页上点一下）
+## ⏳ 还差一步（网页上点一下，只是加速）
+
+**先说明白：不点也不影响被收录。** `PLUGINS.md` 开头写着「未登记的仓库只要打 `dsh-plugin` / `dsh-external` topic，会在每日 02:00 全量扫描时自动收录」——本仓库已经打了 `dsh-plugin`，会自动进入雷达的全量索引。下面这个 PR 只是让它更快出现在人工策展的登记表里，并明确归到 🎓 技能 分区。
 
 当前使用的 GitHub 细粒度令牌只能操作本人仓库，没有「向第三方仓库创建 PR」的权限，所以登记 PR 需要手动确认：
 
