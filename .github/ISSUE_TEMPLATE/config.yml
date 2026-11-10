@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: 上游 dsh-voice-mode 的问题去这里
+    url: https://github.com/qishuilalala/dsh-voice-mode/issues
+    about: 插件本体、模型下载、音色、浏览器端语音模式的问题，属于上游项目，请到上游反馈。
+  - name: 想先看看 DSH 社区都有什么
+    url: https://github.com/topics/dsh-plugin
+    about: DSH 生态的官方发现标签，本仓库也在使用。
