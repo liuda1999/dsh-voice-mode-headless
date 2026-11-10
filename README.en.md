@@ -4,7 +4,7 @@
 
 [![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE) [![Release: v1.0.0](https://img.shields.io/badge/release-v1.0.0-blue.svg)](https://github.com/liuda1999/dsh-voice-mode-headless/releases/tag/v1.0.0) [![DSH: dsh-plugin](https://img.shields.io/badge/DSH-dsh--plugin-181717.svg)](https://github.com/topics/dsh-plugin)
 
-[简体中文](README.md) · **English** · [中英双语 / Bilingual](README.bilingual.md)
+[简体中文](README.md) · **English** · [语言切换 / Switch](README.bilingual.md)
 
 ⭐ **Before you read another line, please star the upstream project:** [qishuilalala/dsh-voice-mode](https://github.com/qishuilalala/dsh-voice-mode). Without it, not a single line of this repository would exist. There is a proper tribute at the end — and it is heartfelt, not boilerplate.
 
@@ -223,7 +223,7 @@ Full troubleshooting table: Section 8 of the reference doc.
 .
 ├── README.md                       ← Simplified Chinese (primary)
 ├── README.en.md                    ← This file
-├── README.bilingual.md             ← Side-by-side CN / EN
+├── README.bilingual.md             ← Language switcher
 ├── SKILL.md                        ← WorkBuddy skill entry (triggers, navigation, hard rules)
 ├── references/
 │   └── 语音模式说明.md              ← Full original spec: architecture, parameters, commands, deployment, troubleshooting, changelog
