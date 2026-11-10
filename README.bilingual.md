@@ -16,25 +16,7 @@
 | **[👉 阅读中文版 README](README.md)** | **[👉 Read the English README](README.en.md)** |
 | 全篇口语化，说人话版 | Full English edition, same content and order |
 
-点上面的按钮即切换语言；下面也可以直接展开另一边。
-
----
-
-## 点一下，切换说明语言 / Click to switch this note
-
-<details open>
-<summary>🇨🇳 <b>简体中文</b> · 当前展开，点标题可收起</summary>
-
-GitHub 的 README 不能跑脚本，所以用最稳的「双文件切换」：`README.md` 是中文主版，`README.en.md` 是英文版，两边顶部都放语言栏，点一下就换语言。读的时候只看到一种语言，干净利落；两份内容一致、章节顺序一致。改内容时两份同步更新，规则写在 [CONTRIBUTING.md](CONTRIBUTING.md)。
-
-</details>
-
-<details>
-<summary>🇬🇧 <b>English</b> · click to expand / 点开切成英文</summary>
-
-GitHub READMEs cannot run scripts, so switching is done the reliable way — two files. `README.md` is the Chinese primary, `README.en.md` the English edition; both carry a language bar at the top. One click changes language, and you only ever read one language at a time. Both editions carry identical content in the same order and are kept in sync; see [CONTRIBUTING.md](CONTRIBUTING.md).
-
-</details>
+点上面的按钮即切换语言。
 
 ---
 
