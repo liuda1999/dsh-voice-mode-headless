@@ -10,8 +10,6 @@
 
 ⭐ **先别急着往下翻，麻烦先去给上游点个 Star：** [qishuilalala/dsh-voice-mode](https://github.com/qishuilalala/dsh-voice-mode)。没有那个项目，这个仓库连一行字都写不出来。文末有我们认认真真写的致谢，是真的感谢，不是客套。
 
-📖 这仓库**完全公开、MIT 许可**，随便看、随便用、随便改；上游版权单独写在 [NOTICE.md](NOTICE.md) 里，不抢别人的功劳。
-
 ---
 
 ## 一句话讲明白
