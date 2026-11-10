@@ -8,8 +8,6 @@
 
 ⭐ **Before you read another line, please star the upstream project:** [qishuilalala/dsh-voice-mode](https://github.com/qishuilalala/dsh-voice-mode). Without it, not a single line of this repository would exist. There is a proper tribute at the end — and it is heartfelt, not boilerplate.
 
-📖 **Fully public, MIT licensed.** Read it, use it, fork it, change it. Upstream attribution lives in [NOTICE.md](NOTICE.md); we claim none of their work.
-
 ---
 
 ## What It Is, In One Breath
