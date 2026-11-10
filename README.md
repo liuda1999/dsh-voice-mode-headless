@@ -1,5 +1,11 @@
 # 让一台吃灰的旧设备，变成「动动嘴就能干活」的智能体盒子
 
+> **Turn an idle machine into a voice-only agent box.** No screen. No keyboard. Just power, network, a microphone — and your voice.
+
+[![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE) [![Release: v1.0.0](https://img.shields.io/badge/release-v1.0.0-blue.svg)](https://github.com/liuda1999/dsh-voice-mode-headless/releases/tag/v1.0.0) [![DSH: dsh-plugin](https://img.shields.io/badge/DSH-dsh--plugin-181717.svg)](https://github.com/topics/dsh-plugin)
+
+**简体中文** · [English](README.en.md) · [中英双语 / Bilingual](README.bilingual.md)
+
 > 说人话就是：给它通上电、连上网、开个麦克风，之后显示器、鼠标、键盘全都不用接。你站旁边说句话，它就把活干了，干完还把结果念给你听。
 
 ⭐ **先别急着往下翻，麻烦先去给上游点个 Star：** [qishuilalala/dsh-voice-mode](https://github.com/qishuilalala/dsh-voice-mode)。没有那个项目，这个仓库连一行字都写不出来。文末有我们认认真真写的致谢，是真的感谢，不是客套。
@@ -8,23 +14,13 @@
 
 ---
 
-## 这到底是个啥
+## 一句话讲明白
 
-想象一下这个画面：
+一台吃灰的旧 Mac 或小主机，接上网、开个麦克风，就变成不用看屏幕的智能体。
 
-家里有台闲置的 Mac mini、旧笔记本，或者你随手攒的一台小盒子。它平时就搁在角落吃灰，没接屏幕，也没插键盘鼠标。某天你给它装上这套东西，插上电、连上网、把一个麦克风打开。
+说一句「肥鱼，看看昨晚的日志有没有报错」，它自己去查，再用语音把结论念回来：「下午三点有一条超时，别的都正常。」想核对细节，在手机或另一台电脑上打开 Web 页面翻会话记录；让它去局域网另一台机器取个文件、发个汇报，也是一句话的事。
 
-从那天起，你想让它干点什么，不用走过去开屏幕，也不用掏手机连远程桌面。你就说一句：
-
-> 「肥鱼，帮我看看昨天那台机器的日志有没有报错。」
-
-它听见自己的名字，答应一声，自己去查，查完用语音把结论念给你：「昨天下午三点有一条超时，别的都正常。」你要是想看细节，在另一台电脑或手机上打开 Web 页面，翻一下会话记录就行。
-
-再比如你可以说：「去局域网那台 NAS 上把上周的报表拿回来，整理一下跟我说重点。」它照做，做完念给你听，文件也躺在该在的地方。
-
-**整个过程你没碰过屏幕、没点过鼠标、没敲过一个字。** 这台设备平时就安安静静待着，你一开口，它就开始干活。
-
-这就是这个仓库要给你的东西。
+**不说话时它安安静静，一开口就开始干活。** 没有显示器，没有鼠标键盘，也不用每次开机点一遍登录和授权 —— 这个仓库装的就是这套能力。
 
 ---
 
@@ -229,7 +225,9 @@
 
 ```
 .
-├── README.md                       ← 你正在看的这份，说人话版
+├── README.md                       ← 简体中文主版，说人话版
+├── README.en.md                    ← English edition
+├── README.bilingual.md             ← 中英逐节对照版
 ├── SKILL.md                        ← WorkBuddy 技能入口（触发条件 + 章节导航 + 硬约束）
 ├── references/
 │   └── 语音模式说明.md              ← 完整方案原文：架构、参数、命令、九步部署、排障、变更记录
