@@ -227,7 +227,8 @@
 ├── README.bilingual.md             ← 语言切换页 / Language switcher
 ├── SKILL.md                        ← WorkBuddy 技能入口（触发条件 + 章节导航 + 硬约束）
 ├── references/
-│   └── 语音模式说明.md              ← 完整方案原文：架构、参数、命令、九步部署、排障、变更记录
+│   ├── 语音模式说明.md              ← 完整方案原文：架构、参数、命令、九步部署、排障、变更记录
+│   └── upstream-lock.md             ← 上游版本锁定、校验值与升级清单
 ├── community/                      ← DSH 社区收录状态、登记表材料与标签复查
 │   ├── README.md
 │   └── dsh-plugin-radar.md
