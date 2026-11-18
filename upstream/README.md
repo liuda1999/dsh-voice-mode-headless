@@ -12,12 +12,34 @@
 | git commit | `b2fa61b22a7e1559ddb50fd0265c2049bcb2610a` |
 | 许可 | MIT，版权归 [@qishuilalala](https://github.com/qishuilalala) 所有 |
 | 文件数 / 解包大小 | 21 / 1,428,484 bytes |
+| 原始 tarball | `upstream/dsh-voice-mode-0.7.39.tgz`（323 KB，sha512 同上） |
 
 ## 为什么内置
 
 - **固定版本**：文档里的安装命令、`cordis.patch.yml` 条目、音色预设、`prefetch.mjs` 的 32 个模型文件校验，都是按这一版核对的；
 - **可核对**：拿到仓库就能直接对照代码，不用去猜 npm 最新版改了什么；
 - **不修改**：这里的内容与发布包逐字节一致，本仓库不对上游代码做任何改动。
+
+## 离线安装（上游关库 / 断网时）
+
+内置包可以直接安装，不依赖 npm：
+
+```bash
+# 在仓库根目录执行（不要在 package.json 所在目录里再 cd 进去）
+cd <仓库根目录>
+
+# 方式一：用原始 tarball（推荐，与发布包逐字节一致）
+dsh plugin --profile web add ./upstream/dsh-voice-mode-0.7.39.tgz
+
+# 方式二：用解包目录
+dsh plugin --profile web add ./upstream/dsh-voice-mode-0.7.39
+```
+
+注意：
+
+- 本地目录方式要在**插件的上一级父目录**执行，否则会多套一层路径，报 `cannot resolve profile bundle`；
+- 安装时仍需网络拉取 `sherpa-onnx` 等依赖；模型文件本来就要联网预取（可用 `hf-mirror.com`）；
+- 装完检查 `dsh.profile.bundles` 与 `node_modules/dsh-voice-mode/package.json` 的版本应为 `0.7.39`。
 
 ## 怎么核对
 

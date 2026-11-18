@@ -27,6 +27,17 @@
 | `GET /voice-mode/config` 配置接口 | 仍由 voice-mode 提供 |
 | 部署第 10.2 节九步 | 安装、模型预取、patch 挂载、配置键均未变 |
 
+## 离线安装（备份路径）
+
+上游关库或无法访问 npm 时，用仓库内置包直接安装（在仓库根目录执行）：
+
+```bash
+dsh plugin --profile web add ./upstream/dsh-voice-mode-0.7.39.tgz
+# 解包目录方式：dsh plugin --profile web add ./upstream/dsh-voice-mode-0.7.39
+```
+
+本地目录必须在**上一级父目录**执行，否则会多套一层路径。安装依赖与模型预取仍需网络。
+
 ## 兼容边界（写进说明文档的口径）
 
 - **仅保证与 v0.7.39 一致**：命令、参数、音色、模型清单都以这一版为准。

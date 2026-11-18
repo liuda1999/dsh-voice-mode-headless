@@ -277,6 +277,7 @@ A fixed upstream release is **vendored** in [`upstream/dsh-voice-mode-0.7.39/`](
 
 - **Compatibility is guaranteed for v0.7.39 only**: upstream declares `node >=18` and `dsh >=0.1.1-rc.2 <0.3.0-0`; anything outside that range is not covered.
 - If upstream makes a large or breaking change (config keys, model repos, patch entries), **this skill may stop working** — we do not chase new releases.
+- If upstream ever disappears or you are offline, the [original tarball](upstream/dsh-voice-mode-0.7.39.tgz) ships with the repo — install with `dsh plugin --profile web add ./upstream/dsh-voice-mode-0.7.39.tgz`;
 - For the latest upstream code, get it from the author's repo or npm: [qishuilalala/dsh-voice-mode](https://github.com/qishuilalala/dsh-voice-mode).
 
 ---

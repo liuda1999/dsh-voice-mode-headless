@@ -285,6 +285,7 @@
 
 - **只保证跟 v0.7.39 兼容**：上游声明 `node >=18`、`dsh >=0.1.1-rc.2 <0.3.0-0`，超出这个范围不保证；
 - 上游以后要是大改、改配置项、换模型清单，**这套技能可能就用不了了**，我们不追着改；
+- 上游关库或断网也不怕：[原始 tarball](upstream/dsh-voice-mode-0.7.39.tgz) 也在仓库里，可直接 `dsh plugin --profile web add ./upstream/dsh-voice-mode-0.7.39.tgz` 离线安装；
 - 想用最新上游代码，直接去原作者仓库或 npm 拿：[qishuilalala/dsh-voice-mode](https://github.com/qishuilalala/dsh-voice-mode)。
 
 ---
