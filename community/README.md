@@ -24,7 +24,7 @@
 
 | 社区目录 | 收录要求 | 本仓库情况 |
 |---|---|---|
-| [awesome-dsh-plugin/awesome-dsh-plugin](https://github.com/awesome-dsh-plugin/awesome-dsh-plugin) 主目录 | `package.json` 声明 `dsh.bundle`、真实可用代码（纯 README 仓库不收）、仓库满 1 天、加 `dsh-plugin` topic | 文档 + WorkBuddy SKILL，没有 bundle 和插件代码，仓库也是新建的 → **不符合** |
+| [awesome-dsh-plugin/awesome-dsh-plugin](https://github.com/awesome-dsh-plugin/awesome-dsh-plugin) 主目录 | `package.json` 声明 `dsh.bundle`、真实可用代码（纯 README 仓库不收）、仓库满 1 天、加 `dsh-plugin` topic | 文档 + WorkBuddy SKILL，没有 bundle 和插件代码 → **不符合**（仓库年龄已满足，缺的是插件结构） |
 | [cccakeee/awesome-dsh-plugins](https://github.com/cccakeee/awesome-dsh-plugins) 已核验目录 | 至少一个原生可装载证据：`dsh plugin` 安装命令、`dsh.bundle` / `cordis.patch.yml`、`apply` 入口 | 没有 → 只能进全量聚合目录 / 相关项目观察名单 |
 | [AdamPlatin123/dsh-plugin-radar](https://github.com/AdamPlatin123/dsh-plugin-radar) 登记表 | 表格加一行，🎓 技能 分区收 SKILL.md 类项目，登记即可见 | ✅ 合适，已按这个走 |
 

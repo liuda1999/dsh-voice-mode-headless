@@ -2,7 +2,7 @@
 
 > **Turn an idle machine into a voice-only agent box.** No screen. No keyboard. Just power, network, a microphone — and your voice.
 
-[![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE) [![Release: v1.0.0](https://img.shields.io/badge/release-v1.0.0-blue.svg)](https://github.com/liuda1999/dsh-voice-mode-headless/releases/tag/v1.0.0) [![DSH: dsh-plugin](https://img.shields.io/badge/DSH-dsh--plugin-181717.svg)](https://github.com/topics/dsh-plugin)
+[![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE) [![Release: v1.0.0](https://img.shields.io/badge/release-v1.2.1-blue.svg)](https://github.com/liuda1999/dsh-voice-mode-headless/releases/latest) [![DSH: dsh-plugin](https://img.shields.io/badge/DSH-dsh--plugin-181717.svg)](https://github.com/topics/dsh-plugin)
 
 **简体中文** · [English](README.en.md) · [语言切换 / Switch](README.bilingual.md)
 
@@ -123,7 +123,7 @@
 
 ## 每天一个新会话，别攒成一锅粥
 
-方案基线里会话是固定一个不更换；这个项目按运维补充改成按天轮转，免得上下文越攒越长：
+会话按天轮转，免得上下文越攒越长：
 
 **每天第一次开口，自动开一个当天的新会话；当天后面再说什么都接着这个会话聊；过了零点再开口，又换一个新的。** 昨天的还在，想翻随时能翻。
 
@@ -146,7 +146,7 @@
 
 九步，别急，一步一步来。完整的命令、配置文件内容和踩坑说明都在 [`references/语音模式说明.md`](references/语音模式说明.md) 的**第 10 节**，这里只给个路线图：
 
-1. 把语音插件装进 `web` profile（`dsh plugin --profile web add dsh-voice-mode`）；
+1. 把语音插件装进 `web` profile，**锁定 v0.7.39**（`dsh plugin --profile web add dsh-voice-mode@0.7.39`）；
 2. 下载并校验模型 —— **这一步有坑**：下载脚本按默认分支抓，运行时却按固定版本号校验，得按固定 revision 把 4 个文件补齐，最后 32/32 全过；
 3. 建一个专门的语音工作区，写好语音规则 `AGENTS.md`；
 4. 编译采集 App、签名、手动点一次麦克风授权；

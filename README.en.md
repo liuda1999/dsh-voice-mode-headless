@@ -2,7 +2,7 @@
 
 > No screen. No keyboard. Just power, network, a microphone — and your voice.
 
-[![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE) [![Release: v1.0.0](https://img.shields.io/badge/release-v1.0.0-blue.svg)](https://github.com/liuda1999/dsh-voice-mode-headless/releases/tag/v1.0.0) [![DSH: dsh-plugin](https://img.shields.io/badge/DSH-dsh--plugin-181717.svg)](https://github.com/topics/dsh-plugin)
+[![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE) [![Release: v1.0.0](https://img.shields.io/badge/release-v1.2.1-blue.svg)](https://github.com/liuda1999/dsh-voice-mode-headless/releases/latest) [![DSH: dsh-plugin](https://img.shields.io/badge/DSH-dsh--plugin-181717.svg)](https://github.com/topics/dsh-plugin)
 
 [简体中文](README.md) · **English** · [语言切换 / Switch](README.bilingual.md)
 
@@ -119,7 +119,7 @@ In plain terms: when are you speaking, and when are you done?
 
 ## A Fresh Session Every Day
 
-The baseline spec keeps one fixed session; this project adds a daily-rotation rule so context does not grow bloated:
+Sessions rotate daily so context does not grow bloated:
 
 **The first utterance of each day opens a new session for that day; everything else that day continues it; the first utterance after midnight opens another.** Yesterday's sessions stay available.
 
@@ -142,7 +142,7 @@ One warning: recompiling the capture app changes its code signature hash and inv
 
 Nine steps. Full commands, config file contents and known traps are in **Section 10** of [`references/语音模式说明.md`](references/语音模式说明.md); this is just the map:
 
-1. Add the voice plugin to the `web` profile (`dsh plugin --profile web add dsh-voice-mode`);
+1. Add the voice plugin to the `web` profile, **pinned to v0.7.39** (`dsh plugin --profile web add dsh-voice-mode@0.7.39`);
 2. Download and verify models — **this one bites**: the download script fetches the default branch while runtime pins a fixed revision, so fetch the 4 files at that revision and confirm 32/32 checksums;
 3. Create a dedicated voice workspace and write its `AGENTS.md` rules;
 4. Compile and sign the capture app, click mic permission once;
