@@ -1,6 +1,6 @@
 # NOTICE · 版权与致谢
 
-本仓库只包含**原创的部署说明文档与 WorkBuddy 技能描述**（`README.md`、`SKILL.md`、`references/语音模式说明.md` 及社区文件），**不含**上游项目 `dsh-voice-mode` 的源码、模型文件或音色资源。
+本仓库包含**原创的部署说明文档与 WorkBuddy 技能描述**（`README.md`、`SKILL.md`、`references/` 及社区文件），以及 `upstream/dsh-voice-mode-0.7.39/` 下**原样内置的上游发布包**（MIT）。内置包仅用于版本锁定、审阅与校验，未做任何修改，其全部版权归原作者所有。
 
 | 项目 | 信息 |
 |---|---|
@@ -8,6 +8,7 @@
 | 上游作者 | [@qishuilalala](https://github.com/qishuilalala) |
 | 上游许可证 | MIT，Copyright (c) qishuilalala |
 | npm 包 | https://www.npmjs.com/package/dsh-voice-mode |
+| 内置版本 | v0.7.39（`upstream/dsh-voice-mode-0.7.39/`，sha512 见 `PROVENANCE.json`） |
 
 上游代码、模型、音色表、图标及相关资源的全部权利归原作者及各自权利人所有。部署时按文档引用的 npm 包 `dsh-voice-mode` 仍受其自身许可证约束。
 

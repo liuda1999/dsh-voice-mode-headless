@@ -231,6 +231,9 @@
 ├── community/                      ← DSH 社区收录状态、登记表材料与标签复查
 │   ├── README.md
 │   └── dsh-plugin-radar.md
+├── upstream/                       ← 内置的上游固定版本发布包（v0.7.39）
+│   ├── README.md
+│   └── dsh-voice-mode-0.7.39/      ← 原样副本 + PROVENANCE.json
 ├── CONTRIBUTING.md                 ← 怎么参与、哪些不能改
 ├── CODE_OF_CONDUCT.md              ← 行为准则
 ├── SECURITY.md                     ← 部署涉及的安全事项
@@ -271,6 +274,16 @@
 - 在 DSH 社区目录里，它该归到「技能 / 文档 / 相关项目」，不是「可安装插件」。我们也是这么登记的。
 
 跟 DeepSeek AI 官方没有隶属关系，也不是官方项目。
+
+---
+
+## 上游锁在 v0.7.39
+
+这个项目把一个固定版本的上游包**内置**在 [`upstream/dsh-voice-mode-0.7.39/`](upstream/dsh-voice-mode-0.7.39) 里（MIT，原样保留，含 LICENSE 和校验清单 `PROVENANCE.json`）。文档里的安装命令、参数、模型清单，都是按这个版本核对过的。
+
+- **只保证跟 v0.7.39 兼容**：上游声明 `node >=18`、`dsh >=0.1.1-rc.2 <0.3.0-0`，超出这个范围不保证；
+- 上游以后要是大改、改配置项、换模型清单，**这套技能可能就用不了了**，我们不追着改；
+- 想用最新上游代码，直接去原作者仓库或 npm 拿：[qishuilalala/dsh-voice-mode](https://github.com/qishuilalala/dsh-voice-mode)。
 
 ---
 

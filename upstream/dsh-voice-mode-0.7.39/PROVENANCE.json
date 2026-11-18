@@ -1,0 +1,27 @@
+{
+  "package": "dsh-voice-mode",
+  "version": "0.7.39",
+  "source": "npm",
+  "tarball": "https://registry.npmjs.org/dsh-voice-mode/-/dsh-voice-mode-0.7.39.tgz",
+  "integrity": "sha512-NjF6SrWi3lX0dwO/4guX1Qy+VWo0q/mRgEEJQK2cE6FQ5hYLZhPZasP8HrX67drvmJMPNyriiEbgzJ5Sz0OQsA==",
+  "shasum": "992b940932c6d013d05c5c662a646d4522f23c24",
+  "gitHead": "b2fa61b22a7e1559ddb50fd0265c2049bcb2610a",
+  "repository": "https://github.com/qishuilalala/dsh-voice-mode",
+  "license": "MIT",
+  "author": "qishuilalala",
+  "engines": {
+    "node": ">=18.0.0",
+    "dsh": ">=0.1.1-rc.2 <0.3.0-0"
+  },
+  "retrievedAt": "2026-11-19",
+  "fileCount": 21,
+  "unpackedSize": 1428484,
+  "verification": {
+    "sha512Checked": true,
+    "packageJsonVersion": "0.7.39",
+    "cordisPatchEntry": "voice-mode",
+    "voicePresets": ["suyingxue", "gunian", "fushiyu", "bingjiao", "bazong"],
+    "prefetchModelFiles": 32
+  },
+  "note": "Vendored verbatim from the npm tarball for version pinning and review. No modifications. All rights remain with the upstream author; see LICENSE in this directory."
+}

@@ -227,6 +227,9 @@ Full troubleshooting table: Section 8 of the reference doc.
 ├── community/                      ← DSH community listing status and submission material
 │   ├── README.md
 │   └── dsh-plugin-radar.md
+├── upstream/                       ← Vendored upstream release (v0.7.39)
+│   ├── README.md
+│   └── dsh-voice-mode-0.7.39/      ← Unmodified copy + PROVENANCE.json
 ├── CONTRIBUTING.md / CODE_OF_CONDUCT.md / SECURITY.md
 ├── NOTICE.md                       ← Upstream attribution
 ├── LICENSE                         ← MIT
@@ -263,6 +266,16 @@ Worth saying plainly, so nobody spends an afternoon on `dsh plugin add`:
 - In DSH community directories it belongs under skills / documentation / related projects, never "installable plugin". That is exactly how we registered it.
 
 No affiliation with DeepSeek AI. This is not an official project.
+
+---
+
+## Upstream Is Pinned to v0.7.39
+
+A fixed upstream release is **vendored** in [`upstream/dsh-voice-mode-0.7.39/`](upstream/dsh-voice-mode-0.7.39) (MIT, unmodified, with its LICENSE and a `PROVENANCE.json` checksum list). Every install command, parameter and model list in this repo was checked against that version.
+
+- **Compatibility is guaranteed for v0.7.39 only**: upstream declares `node >=18` and `dsh >=0.1.1-rc.2 <0.3.0-0`; anything outside that range is not covered.
+- If upstream makes a large or breaking change (config keys, model repos, patch entries), **this skill may stop working** — we do not chase new releases.
+- For the latest upstream code, get it from the author's repo or npm: [qishuilalala/dsh-voice-mode](https://github.com/qishuilalala/dsh-voice-mode).
 
 ---
 

@@ -27,6 +27,7 @@
 - [ ] 描述只讲事实，没有夸大或营销词；
 - [ ] 如果改了 `references/语音模式说明.md`，README 与 SKILL.md 里的对应说法也同步了；
 - [ ] 如果改了 `README.md` 正文，同步更新 `README.en.md`（两份语言版章节顺序保持一致），并检查 `README.bilingual.md` 的章节直达锚点仍有效；
+- [ ] 升级上游版本时，同步替换 `upstream/`、更新 `PROVENANCE.json`、`references/upstream-lock.md` 与三份 README 的版本说明；
 - [ ] 只改了本次要说的事，没顺手重排整篇文档。
 
 ## 流程
