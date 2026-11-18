@@ -223,7 +223,8 @@ Full troubleshooting table: Section 8 of the reference doc.
 ├── README.bilingual.md             ← Language switcher
 ├── SKILL.md                        ← WorkBuddy skill entry (triggers, navigation, hard rules)
 ├── references/
-│   └── 语音模式说明.md              ← Full original spec: architecture, parameters, commands, deployment, troubleshooting, changelog
+│   ├── 语音模式说明.md              ← Full original spec: architecture, parameters, commands, deployment, troubleshooting, changelog
+│   └── upstream-lock.md             ← Upstream version lock, checksums, upgrade checklist
 ├── community/                      ← DSH community listing status and submission material
 │   ├── README.md
 │   └── dsh-plugin-radar.md
