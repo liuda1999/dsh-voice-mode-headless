@@ -108,12 +108,13 @@ In plain terms: when are you speaking, and when are you done?
 
 1. In silence the recognizer is off — idle CPU ≈ 0. Quiet sounds below RMS 0.006 and bursts under 300 ms are ignored.
 2. Sound starts a segment with 300 ms of pre-roll; empty or punctuation-only results are dropped.
-3. **2000 ms** of continuous silence ends the segment.
+3. **2000 ms** of continuous silence ends the segment — that is how it knows you finished, **not an interruption rule**.
 4. The wake word must be **at the start** of the sentence: second syllable exact, first may be a homophone — "飞鱼" wakes it, "买条鱼" does not.
-5. **Wake word has top priority**: saying just the name stops playback instantly, replies "我在" (here), but **does not kill the running task**; the next 20 seconds need no wake word.
-6. A short stop phrase right after it (stop / cancel / never mind…, ≤12 characters) terminates the task and replies "好的，停了".
-7. Other instructions run immediately when idle, or queue until the current turn finishes.
-8. During playback **only the wake word** can interrupt — echo, coughs and noise never cut a reply short.
+5. Saying just the name stops playback instantly, replies "我在" (here) and opens a 20-second window; **the wake word only stops audio, it does not kill the running task**.
+6. What you say next ends after 2 s of silence — it replies "收到" / "知道了" first, then starts working.
+7. While it is reading or working, **only the wake word** interrupts; echo, coughs and noise do not.
+8. After interrupting: a **new task** terminates the current one and starts the new one; **plain chat** leaves the running task untouched.
+9. An explicit stop phrase (stop / cancel / never mind…, ≤12 characters) terminates the task at once, stops playback, and replies "好的，停了".
 
 ---
 
@@ -206,7 +207,7 @@ Full troubleshooting table: Section 8 of the reference doc.
 - The web UI is not live; the session list needs a refresh or a service restart;
 - Opening a voice session in the UI takes a write lock that conflicts with voice writes (it keeps retrying, never switches sessions);
 - A single spoken turn is silently cut at 800 characters; the session record is unaffected;
-- Interrupting playback requires the wake word; random speech, coughs or echo will not cut a reply short;
+- Only the wake word interrupts playback (coughs, echo and noise do not); it only stops audio — what follows still needs 2 s of silence to count as finished;
 - Bluetooth headsets may lose the mic during playback, so wake-word interruption stops working;
 - No runtime switch for the model — edit the profile;
 - Cold start depends on system auto-login; changing the login password requires setting it up again;
