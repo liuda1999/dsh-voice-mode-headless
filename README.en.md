@@ -173,7 +173,7 @@ Every path in the docs is a placeholder (`~`, `<VOICE_DIR>`, `<VOICE_WS>`, `<DSH
 | Want to change | Where |
 |---|---|
 | Wake word | `VOICE_WAKE` |
-| It cuts you off too eagerly | Raise `VOICE_SILENCE_MS` (currently 2000) |
+| Executes before you finish | Raise `VOICE_SILENCE_MS` (currently 2000) |
 | Too quiet / noisy room triggers it | `VOICE_RMS` (currently 0.006) |
 | Reads too fast | `VOICE_SPEED` (currently 0.9) |
 | Different voice | Write a preset name into `voice.txt` and restart the bridge; choices: suyingxue / gunian / fushiyu / bingjiao / bazong |
@@ -207,7 +207,7 @@ Full troubleshooting table: Section 8 of the reference doc.
 - Opening a voice session in the UI takes a write lock that conflicts with voice writes (it keeps retrying, never switches sessions);
 - A single spoken turn is silently cut at 800 characters; the session record is unaffected;
 - Interrupting playback requires the wake word; random speech, coughs or echo will not cut a reply short;
-- Bluetooth headsets may lose the mic during playback, breaking barge-in;
+- Bluetooth headsets may lose the mic during playback, so wake-word interruption stops working;
 - No runtime switch for the model — edit the profile;
 - Cold start depends on system auto-login; changing the login password requires setting it up again;
 - Leftovers from early experiments (isolated home dir, backup files, a retired viewer script) can be cleaned up.
@@ -282,7 +282,9 @@ A fixed upstream release is **vendored** in [`upstream/dsh-voice-mode-0.7.39/`](
 
 ## How This Relates To Upstream
 
-Upstream [qishuilalala/dsh-voice-mode](https://github.com/qishuilalala/dsh-voice-mode) is a full-duplex voice plugin for DSH: streaming captions, sentence-by-sentence read-aloud with live subtitles, barge-in, optional wake word, on-device ASR with no extra API key. It was built for **the browser**.
+Upstream [qishuilalala/dsh-voice-mode](https://github.com/qishuilalala/dsh-voice-mode) is a full-duplex voice plugin for DSH: streaming captions, sentence-by-sentence read-aloud with live subtitles, barge-in (via browser echo cancellation), optional wake word, on-device ASR with no extra API key. It was built for **the browser**.
+
+This project runs on the host side, without that echo cancellation, so interruption is gated by the **wake word** — only calling its name stops playback; coughs, echo and noise do not (see Section 5.4 of the reference doc).
 
 This project targets a machine that **never opens a browser**. Therefore:
 
