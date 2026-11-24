@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/banner.jpg" alt="动动嘴就能干活 / Turn an idle machine into a voice-only agent box" width="100%">
+</p>
+
 # 🌐 语言切换 / Switch Language
 
 # dsh-voice-mode-headless

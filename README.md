@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/banner.jpg" alt="动动嘴就能干活 —— 吃灰旧设备变成智能体盒子" width="100%">
+</p>
+
 # 让一台吃灰的旧设备，变成「动动嘴就能干活」的智能体盒子
 
 > **Turn an idle machine into a voice-only agent box.** No screen. No keyboard. Just power, network, a microphone — and your voice.
@@ -223,6 +227,8 @@
 
 ```
 .
+├── assets/
+│   └── banner.jpg                  ← 项目宣传图（README 顶部）
 ├── README.md                       ← 简体中文主版，说人话版
 ├── README.en.md                    ← English edition
 ├── README.bilingual.md             ← 语言切换页 / Language switcher

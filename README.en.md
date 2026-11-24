@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/banner.jpg" alt="Turn an idle machine into a voice-only agent box" width="100%">
+</p>
+
 # Turn an Idle Machine Into a Voice-Only Agent Box
 
 > No screen. No keyboard. Just power, network, a microphone — and your voice.
@@ -219,6 +223,8 @@ Full troubleshooting table: Section 8 of the reference doc.
 
 ```
 .
+├── assets/
+│   └── banner.jpg                  ← Promo banner used at the top of this README
 ├── README.md                       ← Simplified Chinese (primary)
 ├── README.en.md                    ← This file
 ├── README.bilingual.md             ← Language switcher
