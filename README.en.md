@@ -136,12 +136,22 @@ The host does this automatically. It will not announce "I created a new session"
 
 **Included**: the full deployment spec (architecture, parameters, nine-step install, troubleshooting), the WorkBuddy skill, and the pinned upstream v0.7.39 package (with the original npm tarball for offline install).
 
-**Not included**: the host-side pieces written for the author's own machine — the capture app source `mic_agent.swift`, the bridge `bridge.mjs`, `bin/audiodev`, the `cue-*.wav` tones, and the four helper scripts listed in 10.4. They never shipped with this repo.
+**Not included, on purpose**: the host-side adapter layer — capture app, bridge, device probe, cue tones, helper scripts. They are not missing files; they are **tied to which agent you drive and which machine you run on**. Switch agents and the bridge's "hand the sentence over / take the answer back" section changes with it. So this repo gives you the interface contract, and you write the implementation.
+
+| Adapter | What it does | The boundary it must meet |
+|---|---|---|
+| Capture app | Reads the default microphone continuously | Writes **16 kHz mono float32 little-endian** into the FIFO, ~100 ms chunks; background app, needs mic permission |
+| Bridge | Orchestrates the whole chain | Reads FIFO → gate/segment → ASR → wake word → **call the agent's session API** → get reply → TTS → play |
+| Device probe | Reports the current default input | Prints a device identifier; the bridge compares it periodically and restarts capture on change |
+| Cue tones | Short send / listen / error sounds | Played by the bridge on state changes |
+| Helper scripts | Verify models, fetch deps, test ASR, feed the FIFO | See Section 10.4 of the spec |
+
+The only part of the bridge that is agent-specific is **how a sentence is handed over and how the answer comes back**. Here it is `dsh --profile headless --json "<instruction>"` with cwd set to the voice workspace, reading `sessionId` and the reply text from the output. With another agent, replace just that call — both ends (FIFO in, TTS out) stay the same.
 
 So:
 
 - If you **already have a working setup**, this repo is directly useful for operations, tuning, troubleshooting and migration;
-- If you are **building one from scratch**, you must implement those pieces yourself (or ask the author). Installing the upstream plugin and models alone will leave it unable to hear or speak.
+- If you are **building one from scratch**, write the adapters above. Copying someone else's bridge usually will not work — the session API differs.
 
 ---
 
