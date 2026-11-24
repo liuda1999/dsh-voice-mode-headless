@@ -132,6 +132,19 @@ The host does this automatically. It will not announce "I created a new session"
 
 ---
 
+## Read This Before You Start: What You Get, What You Don't
+
+**Included**: the full deployment spec (architecture, parameters, nine-step install, troubleshooting), the WorkBuddy skill, and the pinned upstream v0.7.39 package (with the original npm tarball for offline install).
+
+**Not included**: the host-side pieces written for the author's own machine — the capture app source `mic_agent.swift`, the bridge `bridge.mjs`, `bin/audiodev`, the `cue-*.wav` tones, and the four helper scripts listed in 10.4. They never shipped with this repo.
+
+So:
+
+- If you **already have a working setup**, this repo is directly useful for operations, tuning, troubleshooting and migration;
+- If you are **building one from scratch**, you must implement those pieces yourself (or ask the author). Installing the upstream plugin and models alone will leave it unable to hear or speak.
+
+---
+
 ## Before You Start
 
 - A **macOS 12+** machine, Node 24 (nvm keeps it painless), a working `dsh` CLI, and an existing `web` profile;
